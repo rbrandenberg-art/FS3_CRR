@@ -6,11 +6,13 @@ import lombok.Setter;
 @Setter
 public class Payment{
     private Long id;
-    private String monto;
+    private Long productId;
+    private Double payment;
 
     public Payment() {}
-    public Payment(Long id, String monto){
+    public Payment(Long id, Long productId, Double payment){
         this.id = id;
-        this.monto = monto;
+        this.productId = productId;
+        this.payment = payment;
     }
 }
