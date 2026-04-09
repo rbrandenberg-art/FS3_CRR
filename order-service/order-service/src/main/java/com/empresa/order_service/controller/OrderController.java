@@ -1,6 +1,8 @@
 package com.empresa.order_service.controller;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,5 +22,9 @@ public class OrderController {
     public String crear(@RequestBody Order order) {
         // Llama al Service que coordina con los otros microservicios [cite: 189, 190]
         return svc.crearOrden(order);
+    }
+    @GetMapping
+    public List<Order> listarTodo() {
+        return svc.findAll(); // El método que ya tienes en tu service
     }
 }

@@ -1,4 +1,6 @@
 package com.empresa.order_service.service;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,11 +21,18 @@ public class OrderService {
     public String crearOrden(Order order) {
         
         // Paso 1: verificar que el producto existe
-        Object producto = rest.getForObject(
+        Map<String, Object> producto = rest.getForObject(
             "http://localhost:8081/productos/" + order.getProductId(),
-            Object.class);
+            Map.class);
 
         if (producto == null) return "Error: producto no existe";
+
+        Double precioReal = Double.valueOf(producto.get("precio").toString());
+    
+        if (!order.getMonto().equals(precioReal)) {
+        return "Error: El monto enviado (" + order.getMonto() + 
+               ") no coincide con el precio del producto (" + precioReal + ")";
+        }
 
         // Paso 2: procesar el pago
         rest.postForObject(
@@ -34,4 +43,5 @@ public class OrderService {
         
         return "Orden creada con exito";
     }
+    public List<Order> findAll() { return repo.findAll(); }
 }

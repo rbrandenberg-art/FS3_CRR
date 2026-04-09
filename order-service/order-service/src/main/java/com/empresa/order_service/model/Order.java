@@ -7,12 +7,12 @@ import lombok.Setter;
 public class Order{
     private Long id;
     private Long productId;
-    private Double payment;
+    private Double monto;
 
     public Order() {}
-    public Order(Long id, Long productId, Double payment){
+    public Order(Long id, Long productId, Double monto){
         this.id = id;
         this.productId = productId;
-        this.payment = payment;
+        this.monto = monto;
     }
 }
