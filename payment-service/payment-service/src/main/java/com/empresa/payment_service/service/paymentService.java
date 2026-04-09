@@ -8,7 +8,8 @@ import com.empresa.payment_service.model.Payment;
 
 @Service
 public class PaymentService {
-    @Autowired private PaymentRepository repo;
+    @Autowired 
+    private PaymentRepository repo;
 
     public String create(Payment p) {
         repo.save(p);

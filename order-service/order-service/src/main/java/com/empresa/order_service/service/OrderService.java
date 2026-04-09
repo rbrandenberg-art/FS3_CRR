@@ -1,13 +1,14 @@
 package com.empresa.order_service.service;
 
-import com.empresa.order_service.model.Order;
-import com.empresa.order_service.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.empresa.order_service.model.Order;
+import com.empresa.order_service.repository.OrderRepository;
+
 @Service 
-class OrderService {
+public class OrderService {
 
     @Autowired
     private RestTemplate rest;

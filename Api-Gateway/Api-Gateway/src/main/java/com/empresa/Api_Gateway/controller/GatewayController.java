@@ -6,7 +6,7 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/api")
-class GatewayController {
+public class GatewayController {
 
     @Autowired 
     private RestTemplate rest;
